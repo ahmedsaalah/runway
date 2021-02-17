@@ -1,0 +1,16 @@
+
+.paper {
+
+display: 'flex',
+
+}
+.avatar {
+margin: spacing(1),
+}
+.form{
+width: '100%', 
+
+}
+.submit {
+    margin: spacing(3, 0, 2),
+}
