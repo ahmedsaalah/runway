@@ -25,5 +25,9 @@ export const ENDPOINTS = {
       InvalidateUser: {
         path: "/api/user/logout",
         method : "POST"
-      }
+      },
+      createUser: {
+        path: "/api/user",
+        method: "POST"
+      },
 };

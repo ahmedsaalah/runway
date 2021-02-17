@@ -10,6 +10,7 @@ import {
   getPayloadData as _getPayloadData,
   handleError as _handleError
 } from "./common";
+import { TypeOfShape } from "yup/lib/object";
 
 /**
  * schema to validate the fields for code verification.
@@ -45,6 +46,21 @@ export const USER_INPUT_SCHEMA: ObjectSchema = object().shape({
     .email("Please enter a valid email")
 });
 
+export const CREATE_USER_INPUT_SCHEMA: ObjectSchema = object().shape({
+  phone: string()
+    .required("Please enter your phone number")
+    .matches(/^((\d{11}))$/i, "Please enter a valid phone number"),
+  last_name: string().required("Please enter your name"),
+  // .matches(/^([a-z ]+)$/i, "Please enter a valid name"),
+  email: string()
+    .required("Please enter your email")
+    .email("Please enter a valid email"),
+  password: string()
+    .required("Please enter your password")
+    .min(8),
+  first_name: string()
+    .matches(/^([a-zA-Z ])$/i, "Please enter a valid firstname"),
+});
 /**
  * a class that contains user related utilities.
  *
@@ -60,6 +76,7 @@ export class User {
    * @returns {Promise<UserInterface>}
    */
   public static createUser(input: UserInput): Promise<UserInterface> {
+    console.log(122);
     return UserAPI.createUser(input)
       .then(result => {
         return _getPayloadData(result);
@@ -193,4 +210,6 @@ export class User {
         return Promise.reject(_handleError(error));
       });
   }
+
+
 }

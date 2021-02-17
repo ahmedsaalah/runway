@@ -8,7 +8,7 @@ import { Home } from "layouts/home";
 import { Login } from "layouts/login";
 import { Profile } from "layouts/profile";
 import { NotFound } from "layouts/not-found";
-import { Header } from "layouts/header";
+import { Signup } from "layouts/signup";
 import  history  from "utilities/history";
 
 
@@ -38,15 +38,15 @@ export const ROUTES = {
     path: "/profile",
     exact: true
   },
-  Header: {
-    component: Header,
+  Signup: {
+    component: Signup,
     // eslint-disable-next-line object-curly-newline
     props: {
       // Add Special Props to the component if needed
       // eslint-disable-next-line object-curly-newline
     },
-    path: "/header",
-    exact: false
+    path: "/signup",
+    exact: true
   },
   Login: {
     component: Login,

@@ -98,7 +98,7 @@ export class Network {
         break;
       case 422:
         promise = response.json().then(data => {
-          return Promise.reject(data && (data.errors || data.message));
+          return Promise.reject(data && (data.validation || data.message));
         });
         break;
       case 401:

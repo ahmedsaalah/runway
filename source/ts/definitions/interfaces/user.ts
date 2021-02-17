@@ -8,4 +8,6 @@ export interface User extends Common {
   avatar?:string;
   email?: string;
   country?:Country;
+  password?:string;
+  password_confirmation?:string;
 }
